@@ -1,5 +1,6 @@
 package local.tin.tests.spring.boot.simple.crud.model.data.product;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -11,7 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import local.tin.tests.spring.boot.simple.crud.model.data.abstracts.AbstractNamed;
-
 
 /**
  *
@@ -27,9 +27,10 @@ public class Unit extends AbstractNamed {
     private Integer id;
     @Column(name = "abbreviation")
     private String abbreviation;
+    @JsonManagedReference
     @OneToMany(mappedBy = "unit", fetch = FetchType.LAZY)
-    private Set<Component> components;    
-    
+    private Set<Component> components;
+
     @Override
     public Integer getId() {
         return id;
@@ -58,7 +59,5 @@ public class Unit extends AbstractNamed {
     public void setComponents(Set<Component> components) {
         this.components = components;
     }
-
-    
 
 }

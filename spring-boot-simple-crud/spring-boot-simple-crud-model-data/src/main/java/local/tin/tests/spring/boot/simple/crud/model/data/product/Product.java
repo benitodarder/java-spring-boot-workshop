@@ -1,5 +1,6 @@
 package local.tin.tests.spring.boot.simple.crud.model.data.product;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -12,7 +13,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import local.tin.tests.spring.boot.simple.crud.model.data.abstracts.AbstractNamed;
 
-
 /**
  *
  * @author benito.darder
@@ -20,15 +20,16 @@ import local.tin.tests.spring.boot.simple.crud.model.data.abstracts.AbstractName
 @Entity
 @Table(name = "PRODUCT")
 public class Product extends AbstractNamed {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
     @Column(name = "description")
     private String description;
+    @JsonManagedReference
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
-    private Set<Assembly> assemblies;      
+    private Set<Assembly> assemblies;
 
     @Override
     public Integer getId() {
@@ -47,7 +48,7 @@ public class Product extends AbstractNamed {
     public void setDescription(String description) {
         this.description = description;
     }
-    
+
     public Set<Assembly> getAssemblies() {
         if (assemblies == null) {
             assemblies = new HashSet<>();
@@ -57,6 +58,6 @@ public class Product extends AbstractNamed {
 
     public void setAssemblies(Set<Assembly> assemblies) {
         this.assemblies = assemblies;
-    }    
+    }
 
 }

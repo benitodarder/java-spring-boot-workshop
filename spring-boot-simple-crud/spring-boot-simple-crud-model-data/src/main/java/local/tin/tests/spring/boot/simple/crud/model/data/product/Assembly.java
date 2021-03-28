@@ -1,5 +1,6 @@
 package local.tin.tests.spring.boot.simple.crud.model.data.product;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
@@ -25,11 +26,11 @@ public class Assembly extends AbstractEnableable {
     private AssemblyId id;
     @Column(name = "QUANTITY")
     private Double quantity;
-
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "PRODUCTID", referencedColumnName = "ID", insertable = false, updatable = false)     
     private Product product;
-
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "COMPONENTID", referencedColumnName = "ID", insertable = false, updatable = false)     
     private Component component;

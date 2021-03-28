@@ -26,20 +26,20 @@ public class UnitController {
     public ResponseEntity<List<Unit>> getAllUnits() {
         List<Unit> list = service.getAllUnits();
 
-        return new ResponseEntity<List<Unit>>(list, new HttpHeaders(), HttpStatus.OK);
+        return new ResponseEntity<>(list, new HttpHeaders(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Unit> getUnitById(@PathVariable("id") Integer id) throws Exception {
         Unit entity = service.getUnitById(id);
 
-        return new ResponseEntity<Unit>(entity, new HttpHeaders(), HttpStatus.OK);
+        return new ResponseEntity<>(entity, new HttpHeaders(), HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity<Unit> createOrUpdateUnit(Unit employee) throws Exception {
         Unit updated = service.createOrUpdateUnit(employee);
-        return new ResponseEntity<Unit>(updated, new HttpHeaders(), HttpStatus.OK);
+        return new ResponseEntity<>(updated, new HttpHeaders(), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

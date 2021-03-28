@@ -26,20 +26,20 @@ public class ProductController {
     public ResponseEntity<List<Product>> getAllProducts() {
         List<Product> list = service.getAllProducts();
 
-        return new ResponseEntity<List<Product>>(list, new HttpHeaders(), HttpStatus.OK);
+        return new ResponseEntity<>(list, new HttpHeaders(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable("id") Integer id) throws Exception {
         Product entity = service.getProductById(id);
 
-        return new ResponseEntity<Product>(entity, new HttpHeaders(), HttpStatus.OK);
+        return new ResponseEntity<>(entity, new HttpHeaders(), HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity<Product> createOrUpdateProduct(Product employee) throws Exception {
         Product updated = service.createOrUpdateProduct(employee);
-        return new ResponseEntity<Product>(updated, new HttpHeaders(), HttpStatus.OK);
+        return new ResponseEntity<>(updated, new HttpHeaders(), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

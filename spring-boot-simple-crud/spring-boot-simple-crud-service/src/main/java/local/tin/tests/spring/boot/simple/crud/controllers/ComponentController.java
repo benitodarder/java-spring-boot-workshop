@@ -26,20 +26,20 @@ public class ComponentController {
     public ResponseEntity<List<Component>> getAllComponents() {
         List<Component> list = service.getAllComponents();
 
-        return new ResponseEntity<List<Component>>(list, new HttpHeaders(), HttpStatus.OK);
+        return new ResponseEntity<>(list, new HttpHeaders(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Component> getComponentById(@PathVariable("id") Integer id) throws Exception {
         Component entity = service.getComponentById(id);
 
-        return new ResponseEntity<Component>(entity, new HttpHeaders(), HttpStatus.OK);
+        return new ResponseEntity<>(entity, new HttpHeaders(), HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity<Component> createOrUpdateComponent(Component employee) throws Exception {
         Component updated = service.createOrUpdateComponent(employee);
-        return new ResponseEntity<Component>(updated, new HttpHeaders(), HttpStatus.OK);
+        return new ResponseEntity<>(updated, new HttpHeaders(), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

@@ -1,5 +1,7 @@
 package local.tin.tests.spring.boot.simple.crud.model.data.product;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -26,9 +28,11 @@ public class Component extends AbstractNamed {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id; 
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "UNITID", referencedColumnName = "id")
     private Unit unit;
+    @JsonManagedReference
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "component")
     private Set<Assembly> assemblies;   
     
