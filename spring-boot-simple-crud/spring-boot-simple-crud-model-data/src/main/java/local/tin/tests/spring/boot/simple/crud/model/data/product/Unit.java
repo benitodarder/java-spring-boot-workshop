@@ -27,7 +27,7 @@ public class Unit extends AbstractNamed {
     private Integer id;
     @Column(name = "abbreviation")
     private String abbreviation;
-    @JsonManagedReference
+    @JsonManagedReference(value="componen-unit")
     @OneToMany(mappedBy = "unit", fetch = FetchType.LAZY)
     private Set<Component> components;
 
