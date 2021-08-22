@@ -59,7 +59,7 @@
         </plugins>
     </build>
     <modules>
-        <module>../spring-boot-hello-world</module>
-        <module>../spring-boot-simple-crud</module>
+        <module>spring-boot-hello-world</module>
+        <module>spring-boot-simple-crud</module>
     </modules>
 </project>

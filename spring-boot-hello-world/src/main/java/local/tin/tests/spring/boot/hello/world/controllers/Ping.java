@@ -20,22 +20,22 @@ import org.springframework.web.bind.annotation.RestController;
 public class Ping {
 
     @GetMapping(path = "/", produces = "text/plain")
-    public String helloWorld() {
-        return "Hello being, it's " + new Date();
+    public String ping() {
+        return "Pinged at " + new Date();
     }
 
     @PostMapping(path = "/postWithBody", consumes = {MediaType.TEXT_PLAIN_VALUE}, produces = "text/Plain")
-    public String helloWorldWithBody(@RequestBody String string) {
-        return "Hello " + string + ", it's " + new Date();
+    public String pingWithBody(@RequestBody String string) {
+        return "Pinged by " + string + ", at " + new Date();
     }
 
     @GetMapping(path = "/getWithArguments", produces = "text/plain")
-    public String helloWorldWithParameter(@RequestParam(value = "name", defaultValue = "World") String name) {
-        return "Hello " + name + ", it's " + new Date();
+    public String pingWithParameter(@RequestParam(value = "name", defaultValue = "World") String name) {
+        return "Pinged by " + name + ", at " + new Date();
     }
     
     @PostMapping(path = "/postURLEncoded", consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE}, produces = "text/Plain")
-    public String helloWorldUrlEncoded(String name) {
-        return "Hello " + name + ", it's " + new Date();
+    public String pingWithURLEncoded(String name) {
+        return "Pinged by " + name + ", at " + new Date();
     }    
 }
