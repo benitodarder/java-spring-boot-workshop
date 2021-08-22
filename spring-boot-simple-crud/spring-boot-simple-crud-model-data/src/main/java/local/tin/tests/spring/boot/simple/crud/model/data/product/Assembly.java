@@ -26,11 +26,11 @@ public class Assembly extends AbstractEnableable {
     private AssemblyId id;
     @Column(name = "QUANTITY")
     private Double quantity;
-    @JsonBackReference
+    @JsonBackReference(value="asembly-unit")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "PRODUCTID", referencedColumnName = "ID", insertable = false, updatable = false)     
     private Product product;
-    @JsonBackReference
+    @JsonBackReference(value="assembly-component")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "COMPONENTID", referencedColumnName = "ID", insertable = false, updatable = false)     
     private Component component;

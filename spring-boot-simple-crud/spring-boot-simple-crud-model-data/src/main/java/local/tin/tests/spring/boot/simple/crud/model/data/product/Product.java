@@ -27,7 +27,7 @@ public class Product extends AbstractNamed {
     private Integer id;
     @Column(name = "description")
     private String description;
-    @JsonManagedReference
+    @JsonManagedReference(value="asembly-unit")
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
     private Set<Assembly> assemblies;
 

@@ -28,11 +28,11 @@ public class Component extends AbstractNamed {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id; 
-    @JsonBackReference
+    @JsonBackReference(value="componen-unit")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "UNITID", referencedColumnName = "id")
     private Unit unit;
-    @JsonManagedReference
+    @JsonManagedReference(value="assembly-component")
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "component")
     private Set<Assembly> assemblies;   
     

@@ -37,6 +37,10 @@ public class ComponentService {
     }
      
     public Component createOrUpdateComponent(Component entity) throws Exception {
+        if (entity.getId() == null) {
+            return repository.save(entity);
+            
+        }
         Optional<Component> employee = repository.findById(entity.getId());
          
         if(employee.isPresent()) 

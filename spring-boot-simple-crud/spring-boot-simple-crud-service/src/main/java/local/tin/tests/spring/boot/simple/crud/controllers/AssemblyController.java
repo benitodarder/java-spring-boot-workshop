@@ -8,11 +8,13 @@ import local.tin.tests.spring.boot.simple.crud.services.AssemblyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,7 +29,7 @@ public class AssemblyController {
     public ResponseEntity<List<Assembly>> getAllAssemblys() {
         List<Assembly> list = service.getAllAssemblys();
 
-        return new ResponseEntity<List<Assembly>>(list, new HttpHeaders(), HttpStatus.OK);
+        return new ResponseEntity<>(list, new HttpHeaders(), HttpStatus.OK);
     }
 
     @GetMapping("/")
@@ -39,14 +41,14 @@ public class AssemblyController {
 
         Assembly entity = service.getAssemblyById(assemblyId);
 
-        return new ResponseEntity<Assembly>(entity, new HttpHeaders(), HttpStatus.OK);
+        return new ResponseEntity<>(entity, new HttpHeaders(), HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<Assembly> createOrUpdateAssembly(Assembly employee)
+    public ResponseEntity<Assembly> createOrUpdateAssembly(@RequestBody Assembly employee)
             throws Exception {
         Assembly updated = service.createOrUpdateAssembly(employee);
-        return new ResponseEntity<Assembly>(updated, new HttpHeaders(), HttpStatus.OK);
+        return new ResponseEntity<>(updated, new HttpHeaders(), HttpStatus.OK);
     }
 
     @DeleteMapping("/")
@@ -56,7 +58,7 @@ public class AssemblyController {
         assemblyId.setComponentId(compoenentId);
         assemblyId.setProductId(productId);
         service.deleteAssemblyById(assemblyId);
-        return HttpStatus.FORBIDDEN;
+        return HttpStatus.OK;
     }
 
 }
