@@ -1,4 +1,4 @@
-package local.tin.tests.spring.boot.hello.world.services;
+package local.tin.tests.spring.boot.web.page.services;
 
 import java.time.Instant;
 import java.time.ZoneOffset;
@@ -10,13 +10,13 @@ import org.springframework.stereotype.Service;
  * @author benitodarder
  */
 @Service
-public class HelloWorldService {
+public class UpTime {
 
     public static final String TIMESTAMP_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSX";
     public static final long CURRENT_MILIS = System.currentTimeMillis();
     public long milis = System.currentTimeMillis();
 
-    public String getGreeting(String message) {
+    public String getResponse(String message) {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(TIMESTAMP_FORMAT)
                 .withZone(ZoneOffset.UTC);
         StringBuilder stringBuilder = new StringBuilder();

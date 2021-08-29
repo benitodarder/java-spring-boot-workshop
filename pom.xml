@@ -61,5 +61,6 @@
     <modules>
         <module>spring-boot-hello-world</module>
         <module>spring-boot-simple-crud</module>
+        <module>spring-boot-web-page</module>
     </modules>
 </project>
