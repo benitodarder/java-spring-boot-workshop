@@ -38,14 +38,21 @@
 	<title>Spring Boot Static Web Page</title>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 	<meta name="generator" content="Geany 1.34.1" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="greeting.js"></script>
 </head>
 
 <body>
     <p>
-	<a href="/UpTime/greetingsWithUpTime" target="_blank">Get message</a>
+	<a href="/UpTime/greetingsWithUpTime" target="_blank">Get message by hyperlink</a>
     </p><p>
-        <a href="/UpTimeToo/greetingsWithUpTime" target="_blank">Get message too!</a>
+        <a href="/UpTimeToo/greetingsWithUpTime" target="_blank">Get message by hyperlink too!</a>
     </p>
+    <div id="sampleGet">
+        <input type="text" id="name"/>
+         <button type="button" id="button" >Click Me!</button> 
+         <div id="greeting"><p id="paragraf"/></div>
+    </div>
 </body>
 
 </html>

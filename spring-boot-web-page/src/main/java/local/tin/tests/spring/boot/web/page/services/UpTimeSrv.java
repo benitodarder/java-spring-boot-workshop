@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
  * @author benitodarder
  */
 @Service
-public class UpTime {
+public class UpTimeSrv {
 
     public static final String TIMESTAMP_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSX";
     public static final long CURRENT_MILIS = System.currentTimeMillis();
