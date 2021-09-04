@@ -30,8 +30,8 @@
    
 -->
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 transitional//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
@@ -50,8 +50,10 @@
     </p>
     <div id="sampleGet">
         <input type="text" id="name"/>
+        <br/>
          <button type="button" id="byPathVariable" >Greet by path variable!</button> 
          <button type="button" id="byRequestParam" >Greet by request param!</button>  
+         <button type="button" id="obtrusiveByParameter" onClick="obtrusiveByParameter(document.getElementById('name').value)">Greet by request param!.. But obtrusive...</button>  
          <div id="greeting"><p id="paragraf"/></div>
     </div>
 </body>
