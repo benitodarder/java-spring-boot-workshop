@@ -57,19 +57,17 @@
          <button type="button" id="obtrusiveByParameter" onClick="obtrusiveByParameter(document.getElementById('name').value)">Greet by request param!.. But obtrusive...</button>  
          <div id="greeting"><p id="paragraf"/></div>
     </div>
-    <div class='parent'>
+    <div id="samplePost">
         <h4>Some fine POST examples...</h4>
-        <h5>Posting old style form... </h5>
-        <div class='child float-left-child' style="float:left">
-            <form id="pojoForm01" action="" method="post">
-                Id: <input type="text" name="pojoFormIdName01" id="pojoFormId01"><br>
-                String: <input type="text" name="pojoFormStringName01" id="pojoFormString01"><br>
-                <input id="pojoFormSubmit01" type="button" name="pojoFormSubmitName01" value="Click for Uppercase string!">
-            </form>            
+        <div class='parent'>
+            <div class='child float-left-child' style="float:left">
+                <p>Id: <input type="text" id="pojoId01"></p>
+                <p>String: <input type="text" id="pojoString01"></p>
+                <input id="pojoSubmit01" type="button"  value="Click for Uppercase string!">
+            </div>
+            <div class='child float-left-child' style="float:left"><p id="pojoParagraf01"/></div>
         </div>
-        <div class='child float-left-child' style="float:left"><p id="pojoParagraf01"/></div>
     </div>
-
 </body>
 
 </html>

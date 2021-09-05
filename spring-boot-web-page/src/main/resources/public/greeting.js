@@ -30,14 +30,14 @@ $(document).ready(function(){
         });
     });    
     
-    $("#pojoFormSubmit01").click(function(){
+    $("#pojoSubmit01").click(function(){
         var pojo = {
-            id: new Number($("#pojoFormId01").val()),
-            string: $("#pojoFormString01").val()
+            id: new Number($("#pojoId01").val()),
+            string: $("#pojoString01").val()
         }
         $.ajax({
             crossDomain: true,
-            url: 'http://localhost:8080/pojo/toUpperCase',
+            url: 'http://localhost:8081/pojo/toUpperCase',
             type : "POST", 
             dataType : "json",
             contentType: "application/json",
