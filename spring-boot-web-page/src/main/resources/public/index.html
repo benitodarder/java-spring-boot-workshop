@@ -49,6 +49,7 @@
         <a href="/UpTimeToo/greetingsWithUpTime" target="_blank">Get message by hyperlink too!</a>
     </p>
     <div id="sampleGet">
+        <h4>Some fine GET examples...</h4>
         <input type="text" id="name"/>
         <br/>
          <button type="button" id="byPathVariable" >Greet by path variable!</button> 
@@ -56,6 +57,19 @@
          <button type="button" id="obtrusiveByParameter" onClick="obtrusiveByParameter(document.getElementById('name').value)">Greet by request param!.. But obtrusive...</button>  
          <div id="greeting"><p id="paragraf"/></div>
     </div>
+    <div class='parent'>
+        <h4>Some fine POST examples...</h4>
+        <h5>Posting old style form... </h5>
+        <div class='child float-left-child' style="float:left">
+            <form id="pojoForm01" action="" method="post">
+                Id: <input type="text" name="pojoFormIdName01" id="pojoFormId01"><br>
+                String: <input type="text" name="pojoFormStringName01" id="pojoFormString01"><br>
+                <input id="pojoFormSubmit01" type="button" name="pojoFormSubmitName01" value="Click for Uppercase string!">
+            </form>            
+        </div>
+        <div class='child float-left-child' style="float:left"><p id="pojoParagraf01"/></div>
+    </div>
+
 </body>
 
 </html>

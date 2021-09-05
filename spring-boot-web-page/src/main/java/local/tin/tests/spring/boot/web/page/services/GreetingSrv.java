@@ -11,7 +11,9 @@ import org.springframework.stereotype.Service;
 public class GreetingSrv {
     
     public String getResponse(String name) {
-        return "Hi " + name + ", nice to meet you at " + new Date();
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Hi ").append(name).append(", nice to meet you at ").append(new Date());
+        return stringBuilder.toString();
     }
  
 }

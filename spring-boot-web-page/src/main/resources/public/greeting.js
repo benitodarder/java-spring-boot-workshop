@@ -30,6 +30,26 @@ $(document).ready(function(){
         });
     });    
     
+    $("#pojoFormSubmit01").click(function(){
+        var pojo = {
+            id: new Number($("#pojoFormId01").val()),
+            string: $("#pojoFormString01").val()
+        }
+        $.ajax({
+            crossDomain: true,
+            url: 'http://localhost:8080/pojo/toUpperCase',
+            type : "POST", 
+            dataType : "json",
+            contentType: "application/json",
+            data : JSON.stringify(pojo),
+            success : function(data) {
+                $("#pojoParagraf01").text(JSON.stringify(data));
+            },
+            error: function(xhr, resp, text) {
+                console.log(xhr, resp, text);
+            }
+        })
+    });
    
 });
 

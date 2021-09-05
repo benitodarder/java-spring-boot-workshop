@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping(path = "/greetings")
-public class GreetingsCtlr {
+public class GreetingsCtrl {
     
     @Autowired
     private GreetingSrv helloWorldService;
