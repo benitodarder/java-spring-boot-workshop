@@ -37,7 +37,7 @@ $(document).ready(function(){
         }
         $.ajax({
             crossDomain: true,
-            url: 'http://localhost:8081/pojo/toUpperCase',
+            url: 'http://localhost:8080/pojo/toUpperCase',
             type : "POST", 
             dataType : "json",
             contentType: "application/json",
