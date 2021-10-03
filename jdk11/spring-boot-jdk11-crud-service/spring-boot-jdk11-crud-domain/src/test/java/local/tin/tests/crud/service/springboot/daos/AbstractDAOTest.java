@@ -204,7 +204,7 @@ public class AbstractDAOTest {
     }
 }
 
-class AbstractDAOWrapper extends AbstractDAO<Domain, Persistence> {
+class AbstractDAOWrapper extends AbstractDAO<Domain, Persistence, Integer> {
 
     @Override
     protected AbstractIdentifiableDomainToPersistence<Domain, Persistence> getBusinessToPersistence() {

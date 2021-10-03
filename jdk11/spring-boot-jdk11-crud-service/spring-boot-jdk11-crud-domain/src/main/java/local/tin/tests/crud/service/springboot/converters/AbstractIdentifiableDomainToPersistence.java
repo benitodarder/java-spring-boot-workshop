@@ -14,10 +14,14 @@ public abstract class AbstractIdentifiableDomainToPersistence<B extends local.ti
 
     protected abstract P getConvertedInstance();
     
+    protected Object getConvertedId(B arg0) {
+        return arg0.getId();
+    }
+    
     @Override
     public P convert(B arg0) {
         P p = getConvertedInstance();
-        p.setId(arg0.getId());
+        p.setId(getConvertedId(arg0));
         return p;
     }
     

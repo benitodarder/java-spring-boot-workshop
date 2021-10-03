@@ -1,12 +1,15 @@
 package local.tin.tests.crud.service.springboot.daos;
 
 import local.tin.tests.crud.model.domain.Assembly;
+import local.tin.tests.crud.model.persistence.embeddables.AssemblyId;
 import local.tin.tests.crud.service.springboot.converters.AbstractIdentifiableDomainToPersistence;
 import local.tin.tests.crud.service.springboot.converters.AbstractIdentifiablePersistenceToDomain;
 import local.tin.tests.crud.service.springboot.converters.AssemblyDomainToPersistence;
 import local.tin.tests.crud.service.springboot.converters.AssemblyPersistenceToDomain;
 import local.tin.tests.crud.service.springboot.repositories.IRepository;
 import local.tin.tests.crud.service.springboot.repositories.AssemblyRepo;
+import local.tin.tests.crud.service.springboot.repositories.IEnableableRepositoryEmbedded;
+import local.tin.tests.crud.service.springboot.repositories.IRepositoryEmbedded;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +18,7 @@ import org.springframework.stereotype.Component;
  * @author benitodarder
  */
 @Component
-public class AssemblyDAO extends AbstractDAO<local.tin.tests.crud.model.domain.Assembly, local.tin.tests.crud.model.persistence.Assembly>{
+public class AssemblyDAO extends AbstractDAO<local.tin.tests.crud.model.domain.Assembly, local.tin.tests.crud.model.persistence.Assembly, AssemblyId>{
 
     @Autowired
     private AssemblyPersistenceToDomain superHeroPersistenceToBusiness;
@@ -35,7 +38,7 @@ public class AssemblyDAO extends AbstractDAO<local.tin.tests.crud.model.domain.A
     }
 
     @Override
-    protected IRepository<local.tin.tests.crud.model.persistence.Assembly> getRepository() {
+    protected IEnableableRepositoryEmbedded<local.tin.tests.crud.model.persistence.Assembly, AssemblyId> getRepository() {
         return superHeroRepo;
     }
     

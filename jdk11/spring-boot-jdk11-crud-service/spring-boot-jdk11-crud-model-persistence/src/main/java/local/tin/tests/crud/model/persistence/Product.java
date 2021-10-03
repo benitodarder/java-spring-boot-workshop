@@ -24,14 +24,14 @@ public class Product extends AbstractNamed {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    private Object id;
     @Column(name = "description")
     private String description;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
     private Set<Assembly> assemblies;
 
     @Override
-    public Integer getId() {
+    public Object getId() {
         return id;
     }
 

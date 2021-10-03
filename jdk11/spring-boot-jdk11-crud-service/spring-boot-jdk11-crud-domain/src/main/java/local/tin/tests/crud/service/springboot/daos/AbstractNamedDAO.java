@@ -11,7 +11,7 @@ import local.tin.tests.crud.service.springboot.repositories.INamedRepository;
  * @param <BN>
  * @param <PN>
  */
-public abstract class AbstractNamedDAO<BN extends local.tin.tests.crud.model.domain.interfaces.INamed, PN extends local.tin.tests.crud.model.persistence.interfaces.INamed> extends AbstractDAO<BN, PN> implements IAbstractNamedDAO<BN, PN>{
+public abstract class AbstractNamedDAO<BN extends local.tin.tests.crud.model.domain.interfaces.INamed, PN extends local.tin.tests.crud.model.persistence.interfaces.INamed> extends AbstractDAO<BN, PN, Integer> implements IAbstractNamedDAO<BN, PN>{
 
     @Override
     public List<BN> findByName(String name) {

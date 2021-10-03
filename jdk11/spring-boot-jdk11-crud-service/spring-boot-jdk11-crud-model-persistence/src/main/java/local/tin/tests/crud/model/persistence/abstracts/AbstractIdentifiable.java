@@ -19,7 +19,7 @@ public abstract class AbstractIdentifiable extends AbstractObject implements IId
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")    
-    private Integer id;
+    private Object id;
 
     @Override
     public Object getId() {

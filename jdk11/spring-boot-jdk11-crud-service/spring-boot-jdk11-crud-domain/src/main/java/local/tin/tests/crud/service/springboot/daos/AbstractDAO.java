@@ -6,7 +6,7 @@ import local.tin.tests.crud.model.domain.exceptions.SuperException;
 import local.tin.tests.crud.service.springboot.converters.AbstractIdentifiableDomainToPersistence;
 import local.tin.tests.crud.service.springboot.converters.AbstractIdentifiablePersistenceToDomain;
 import local.tin.tests.crud.service.springboot.daos.interfaces.IAbstractDAO;
-import local.tin.tests.crud.service.springboot.repositories.IRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 /**
  *
@@ -14,11 +14,11 @@ import org.springframework.transaction.annotation.Transactional;
  * @param <BI>
  * @param <PI>
  */
-public abstract class AbstractDAO<BI extends local.tin.tests.crud.model.domain.interfaces.IIdentifiable, PI extends local.tin.tests.crud.model.persistence.interfaces.IIdentifiable>  implements IAbstractDAO<BI, PI> {
+public abstract class AbstractDAO<BI extends local.tin.tests.crud.model.domain.interfaces.IIdentifiable, PI extends local.tin.tests.crud.model.persistence.interfaces.IIdentifiable, K extends Object>  implements IAbstractDAO<BI, PI> {
   
     public static final int DEFAULT_DEPTH = 1;
     
-    protected abstract IRepository<PI> getRepository();
+    protected abstract JpaRepository<PI, K> getRepository();
     
     protected abstract AbstractIdentifiableDomainToPersistence<BI, PI> getBusinessToPersistence();
 
@@ -43,7 +43,7 @@ public abstract class AbstractDAO<BI extends local.tin.tests.crud.model.domain.i
     @Transactional    
     @Override
     public BI retrieve(Object id) throws SuperException {
-        PI pi = getRepository().getOne((Integer) id);
+        PI pi = getRepository().getOne((K) id);
         if (pi == null) {
             return null;
         }
@@ -67,7 +67,7 @@ public abstract class AbstractDAO<BI extends local.tin.tests.crud.model.domain.i
         if (retrieve(id) == null) {
             throw new SuperException("Element not found for id: " + id);
         }
-        getRepository().deleteById((Integer) id);
+        getRepository().deleteById((K) id);
     }
 
     @Transactional    

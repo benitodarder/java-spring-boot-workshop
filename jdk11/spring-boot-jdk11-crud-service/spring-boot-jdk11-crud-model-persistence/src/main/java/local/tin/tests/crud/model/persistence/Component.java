@@ -28,7 +28,7 @@ public class Component extends AbstractNamed {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id; 
+    private Object id; 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "UNITID", referencedColumnName = "id")
     private Unit unit;
@@ -36,7 +36,7 @@ public class Component extends AbstractNamed {
     private Set<Assembly> assemblies;   
     
     @Override
-    public Integer getId() {
+    public Object getId() {
         return id;
     }
 

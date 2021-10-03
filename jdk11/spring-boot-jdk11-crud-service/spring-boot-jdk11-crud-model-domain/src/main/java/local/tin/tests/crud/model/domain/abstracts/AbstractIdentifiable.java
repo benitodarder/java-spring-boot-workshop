@@ -11,7 +11,7 @@ import local.tin.tests.crud.model.domain.interfaces.IIdentifiable;
 public abstract class AbstractIdentifiable extends AbstractObject implements IIdentifiable {
     
  
-    private Integer id;
+    private Object id;
 
     @Override
     public Object getId() {

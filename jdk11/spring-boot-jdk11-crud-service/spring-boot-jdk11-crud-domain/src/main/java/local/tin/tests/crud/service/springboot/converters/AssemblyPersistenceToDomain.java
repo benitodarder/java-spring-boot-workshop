@@ -32,4 +32,12 @@ public class AssemblyPersistenceToDomain extends AbstractEnableablePersistenceTo
         return superHero;
     }
 
+    @Override
+    protected local.tin.tests.crud.model.domain.composites.AssemblyId getConvertedId(local.tin.tests.crud.model.persistence.Assembly c0) {
+        local.tin.tests.crud.model.domain.composites.AssemblyId assemblyId = new local.tin.tests.crud.model.domain.composites.AssemblyId();
+        assemblyId.setComponentId(c0.getId().getComponentId());
+        assemblyId.setProductId(c0.getId().getProductId());
+        return assemblyId;
+    }
+
 }
