@@ -20,15 +20,15 @@ import local.tin.tests.crud.model.persistence.abstracts.AbstractNamed;
 @Entity
 @Table(name = "PRODUCT")
 public class Product extends AbstractNamed {
-
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Object id;
+    private Integer id;
     @Column(name = "description")
     private String description;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
-    private Set<Assembly> assemblies;
+    private Set<Assembly> assemblies;      
 
     @Override
     public Object getId() {
@@ -47,7 +47,7 @@ public class Product extends AbstractNamed {
     public void setDescription(String description) {
         this.description = description;
     }
-
+    
     public Set<Assembly> getAssemblies() {
         if (assemblies == null) {
             assemblies = new HashSet<>();
@@ -57,6 +57,6 @@ public class Product extends AbstractNamed {
 
     public void setAssemblies(Set<Assembly> assemblies) {
         this.assemblies = assemblies;
-    }
+    }    
 
 }

@@ -1,18 +1,18 @@
 package local.tin.tests.crud.service.springboot.impl;
 
-import local.tin.tests.crud.service.springboot.impl.AbstractNamedServiceBusiness;
+import local.tin.tests.crud.service.springboot.impl.abstracts.AbstractNamedServiceBusiness;
 import java.util.ArrayList;
 import java.util.List;
 import local.tin.tests.crud.model.domain.exceptions.SuperException;
 import local.tin.tests.crud.model.persistence.abstracts.AbstractNamed;
-import local.tin.tests.crud.service.springboot.converters.AbstractIdentifiablePersistenceToDomain;
-import local.tin.tests.crud.service.springboot.converters.AbstractNamedDomainToPersistence;
-import local.tin.tests.crud.service.springboot.converters.AbstractNamedPersistenceToDomain;
-import local.tin.tests.crud.service.springboot.daos.AbstractDAO;
-import local.tin.tests.crud.service.springboot.daos.AbstractNamedDAO;
+import local.tin.tests.crud.service.springboot.converters.abstracts.AbstractIdentifiablePersistenceToDomain;
+import local.tin.tests.crud.service.springboot.converters.abstracts.AbstractNamedDomainToPersistence;
+import local.tin.tests.crud.service.springboot.converters.abstracts.AbstractNamedPersistenceToDomain;
+import local.tin.tests.crud.service.springboot.daos.abstracts.AbstractDAO;
+import local.tin.tests.crud.service.springboot.daos.abstracts.AbstractNamedDAO;
 import local.tin.tests.crud.service.springboot.daos.interfaces.IAbstractDAO;
-import local.tin.tests.crud.service.springboot.repositories.INamedRepository;
-import local.tin.tests.crud.service.springboot.repositories.IRepository;
+import local.tin.tests.crud.service.springboot.repositories.interfaces.INamedRepository;
+import local.tin.tests.crud.service.springboot.repositories.interfaces.IRepository;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;

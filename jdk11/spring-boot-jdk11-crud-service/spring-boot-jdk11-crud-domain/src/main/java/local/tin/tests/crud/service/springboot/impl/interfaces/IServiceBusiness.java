@@ -12,11 +12,11 @@ public interface IServiceBusiness<BI extends AbstractIdentifiable> {
 
     public BI create(BI item) throws SuperException;
 
-    public BI retrieve(Object id) throws SuperException;
+    public BI retrieve(BI id) throws SuperException;
 
     public BI update(BI item) throws SuperException;
 
-    public void delete(Object id) throws SuperException;
+    public void delete(BI id) throws SuperException;
 
     public List<BI> findAll() throws SuperException;
 

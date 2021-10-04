@@ -1,7 +1,5 @@
 package local.tin.tests.crud.model.persistence;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -28,9 +26,9 @@ public class Component extends AbstractNamed {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Object id; 
+    private Integer id; 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "UNITID", referencedColumnName = "id")
+    @JoinColumn(name = "unitId", referencedColumnName = "id")
     private Unit unit;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "component")
     private Set<Assembly> assemblies;   

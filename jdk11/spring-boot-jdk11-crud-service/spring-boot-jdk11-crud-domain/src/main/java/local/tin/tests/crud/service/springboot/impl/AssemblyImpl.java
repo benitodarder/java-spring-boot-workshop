@@ -1,5 +1,6 @@
 package local.tin.tests.crud.service.springboot.impl;
 
+import local.tin.tests.crud.service.springboot.impl.abstracts.AbstractServiceBusiness;
 import local.tin.tests.crud.model.persistence.Assembly;
 import local.tin.tests.crud.service.springboot.daos.AssemblyDAO;
 import local.tin.tests.crud.service.springboot.daos.interfaces.IAbstractDAO;

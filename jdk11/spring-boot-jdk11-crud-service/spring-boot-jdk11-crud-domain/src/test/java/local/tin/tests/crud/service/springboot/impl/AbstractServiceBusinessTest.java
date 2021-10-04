@@ -1,27 +1,15 @@
 package local.tin.tests.crud.service.springboot.impl;
 
-import local.tin.tests.crud.service.springboot.impl.AbstractServiceBusiness;
-import java.util.ArrayList;
+import local.tin.tests.crud.service.springboot.impl.abstracts.AbstractServiceBusiness;
 import java.util.List;
 import local.tin.tests.crud.model.domain.exceptions.SuperException;
 import local.tin.tests.crud.model.persistence.abstracts.AbstractIdentifiable;
-import local.tin.tests.crud.model.persistence.abstracts.AbstractNamed;
-import local.tin.tests.crud.service.springboot.converters.AbstractIdentifiableDomainToPersistence;
-import local.tin.tests.crud.service.springboot.converters.AbstractIdentifiablePersistenceToDomain;
-import local.tin.tests.crud.service.springboot.daos.AbstractDAO;
+import local.tin.tests.crud.service.springboot.daos.abstracts.AbstractDAO;
 import local.tin.tests.crud.service.springboot.daos.interfaces.IAbstractDAO;
-import static local.tin.tests.crud.service.springboot.impl.AbstractNamedServiceBusinessTest.mockedAbstractDAO;
-import local.tin.tests.crud.service.springboot.repositories.IRepository;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.reset;
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -47,6 +35,7 @@ public class AbstractServiceBusinessTest {
         service = new AbstractServiceBusinessWrapper();
         mockedPersistence = mock(local.tin.tests.crud.model.persistence.abstracts.AbstractIdentifiable.class);
         mockedBusiness = mock(local.tin.tests.crud.model.domain.abstracts.AbstractIdentifiable.class);
+        when(mockedBusiness.getId()).thenReturn(SAMPLE_ID);
     }
 
     @Test
@@ -62,9 +51,9 @@ public class AbstractServiceBusinessTest {
     @Test
     public void retrieve_calls_dao() throws local.tin.tests.crud.model.domain.exceptions.SuperException {
 
-        service.retrieve(SAMPLE_ID);
+        service.retrieve(mockedBusiness);
 
-        verify(mockedAbstractDAO).retrieve(SAMPLE_ID);
+        verify(mockedAbstractDAO).retrieve(mockedBusiness);
     }
 
 
@@ -83,9 +72,9 @@ public class AbstractServiceBusinessTest {
     @Test
     public void delete_removes_element() throws local.tin.tests.crud.model.domain.exceptions.SuperException {
         
-        service.delete(SAMPLE_ID);
+        service.delete(mockedBusiness);
 
-        verify(mockedAbstractDAO).delete(SAMPLE_ID);
+        verify(mockedAbstractDAO).delete(mockedBusiness);
     }
 
     @Test

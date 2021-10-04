@@ -1,24 +1,22 @@
-package  local.tin.tests.crud.model.domain;
+package local.tin.tests.crud.model.domain;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import java.util.Objects;
 import local.tin.tests.crud.model.domain.abstracts.AbstractEnableable;
 import local.tin.tests.crud.model.domain.composites.AssemblyId;
-
-
+import local.tin.tests.crud.model.domain.deserializers.AssemblyIdDeserializer;
 
 /**
  *
  * @author benito.darder
  */
-
 public class Assembly extends AbstractEnableable {
 
-
+    @JsonDeserialize(using = AssemblyIdDeserializer.class)
     private AssemblyId id;
     private Double quantity;
     private Product product;
     private Component component;
-    
 
     @Override
     public AssemblyId getId() {
@@ -79,6 +77,5 @@ public class Assembly extends AbstractEnableable {
     public void setComponent(Component component) {
         this.component = component;
     }
-    
-    
+
 }

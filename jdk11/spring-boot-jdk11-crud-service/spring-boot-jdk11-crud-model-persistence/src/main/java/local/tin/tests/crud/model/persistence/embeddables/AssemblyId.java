@@ -6,16 +6,12 @@ import javax.persistence.Embeddable;
 import local.tin.tests.crud.model.persistence.interfaces.IEmbeddable;
 
 
-/**
- *
- * @author benito.darder
- */
 @Embeddable
 public class AssemblyId implements IEmbeddable {
     
-    @Column(name = "PRODUCTID")
+    @Column(name = "productId")
     private Integer productId;  
-    @Column(name = "COMPONENTID")
+    @Column(name = "componentId")
     private Integer componentId;
 
     public Integer getProductId() {

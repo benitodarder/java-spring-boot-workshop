@@ -12,29 +12,26 @@ import javax.persistence.Table;
 import local.tin.tests.crud.model.persistence.abstracts.AbstractEnableable;
 import local.tin.tests.crud.model.persistence.embeddables.AssemblyId;
 
-
-/**
- *
- * @author benito.darder
- */
 @Entity
 @Table(name = "ASSEMBLY")
 public class Assembly extends AbstractEnableable {
 
     @EmbeddedId
     private AssemblyId id;
-    @Column(name = "QUANTITY")
+    @Column(name = "quantity")
     private Double quantity;
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "PRODUCTID", referencedColumnName = "ID", insertable = false, updatable = false)     
+    @JoinColumn(name = "productId", referencedColumnName = "id", insertable = false, updatable = false)     
     private Product product;
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "COMPONENTID", referencedColumnName = "ID", insertable = false, updatable = false)     
+    @JoinColumn(name = "componentId", referencedColumnName = "id", insertable = false, updatable = false)     
     private Component component;
     
 
     @Override
-    public AssemblyId getId() {
+    public Object getId() {
         return id;
     }
 

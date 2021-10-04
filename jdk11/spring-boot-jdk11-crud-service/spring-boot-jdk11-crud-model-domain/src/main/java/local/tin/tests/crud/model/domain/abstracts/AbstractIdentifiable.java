@@ -11,18 +11,6 @@ import local.tin.tests.crud.model.domain.interfaces.IIdentifiable;
 public abstract class AbstractIdentifiable extends AbstractObject implements IIdentifiable {
     
  
-    private Object id;
-
-    @Override
-    public Object getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(Object id) {
-        this.id = (Integer) id;
-    }    
-
     @Override
     public int hashCode() {
         int hash = 5;

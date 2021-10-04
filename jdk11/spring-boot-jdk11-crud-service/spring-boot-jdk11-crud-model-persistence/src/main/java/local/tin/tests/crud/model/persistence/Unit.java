@@ -31,7 +31,7 @@ public class Unit extends AbstractNamed {
     private Set<Component> components;
 
     @Override
-    public Integer getId() {
+    public Object getId() {
         return id;
     }
 

@@ -25,5 +25,31 @@ public abstract class AbstractEnableable extends AbstractIdentifiable implements
         this.enabled = enabled;
     }    
 
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 83 * hash + (this.enabled ? 1 : 0);
+        hash = 83 * hash + super.hashCode();
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final AbstractEnableable other = (AbstractEnableable) obj;
+        if (this.enabled != other.enabled) {
+            return false;
+        }
+        return super.equals(obj);
+    }
+
     
 }

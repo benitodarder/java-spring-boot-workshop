@@ -1,10 +1,6 @@
 package local.tin.tests.crud.model.persistence.abstracts;
 
 import java.util.Objects;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import local.tin.tests.crud.model.persistence.interfaces.IIdentifiable;
 
@@ -16,20 +12,7 @@ import local.tin.tests.crud.model.persistence.interfaces.IIdentifiable;
 @MappedSuperclass
 public abstract class AbstractIdentifiable extends AbstractObject implements IIdentifiable {
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")    
-    private Object id;
 
-    @Override
-    public Object getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(Object id) {
-        this.id = (Integer) id;
-    }    
 
     @Override
     public int hashCode() {

@@ -117,9 +117,11 @@
         </pluginManagement>
     </build>
     <modules>
-        <module>spring-boot-jdk11-crud-model-domain</module>
         <module>spring-boot-jdk11-crud-model-persistence</module>
-        <module>spring-boot-jdk11-crud-domain</module>
+        <module>spring-boot-jdk11-crud-model-domain</module>        
+        <module>spring-boot-jdk11-crud-persistence</module>   
+        <module>spring-boot-jdk11-crud-domain</module>             
+        <module>spring-boot-jdk11-crud-web</module>
     </modules>
     <name>spring-boot-jdk11-crud</name>
 </project>
