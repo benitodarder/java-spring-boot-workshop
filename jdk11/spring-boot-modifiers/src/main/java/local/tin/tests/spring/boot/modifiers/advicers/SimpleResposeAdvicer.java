@@ -35,7 +35,11 @@ public class SimpleResposeAdvicer implements ResponseBodyAdvice<Object> {
             Class<? extends HttpMessageConverter<?>> aClass, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
         if (serverHttpRequest instanceof ServletServerHttpRequest && serverHttpResponse instanceof ServletServerHttpResponse) {
             LOGGER.info("Body was read!!");
-            LOGGER.info("And it was:\n" + (String) o);
+            if (o instanceof String) {
+                LOGGER.info("And it was:\n" + (String) o);
+            } else {
+                LOGGER.info("And it is an instance of:\n" + o.getClass().getCanonicalName());
+            }
         }
         return o;
     }
