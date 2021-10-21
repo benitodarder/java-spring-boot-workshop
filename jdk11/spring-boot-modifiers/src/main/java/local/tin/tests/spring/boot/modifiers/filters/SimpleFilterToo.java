@@ -24,13 +24,12 @@ public class SimpleFilterToo implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        Filter.super.init(filterConfig);
-        LOGGER.info("Filter initialized!");
+        LOGGER.info("SimpleFilterToo initialized!");
     }
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
-        LOGGER.info("doFilter starts!");
+        LOGGER.info("SimpleFilterToo doFilter starts!");
         if (!(request instanceof HttpServletRequest) || !(response instanceof HttpServletResponse)) {
             LOGGER.warn("LoggingFilter just supports HTTP requests");
         } else {
@@ -46,22 +45,21 @@ public class SimpleFilterToo implements Filter {
 
                 filterChain.doFilter(requestWrapper, responseWrapper);
 
-                LOGGER.info("{} {} - {}{} - {}ms\nRequest body:\n{}\nResponse body:\n{}\n==============================================", requestWrapper.getMethod(), responseWrapper.getStatus(), requestWrapper.getRequestURL().toString(), requestWrapper.getQueryString() != null ? ("?" + requestWrapper.getQueryString()) : "", (System.currentTimeMillis() - t0), requestBody, responseWrapper.getContent());
+                LOGGER.info("\n==============================================\n{} {} - {}{} - {}ms\nRequest body:\n{}\nResponse body:\n{}\n==============================================", requestWrapper.getMethod(), responseWrapper.getStatus(), requestWrapper.getRequestURL().toString(), requestWrapper.getQueryString() != null ? ("?" + requestWrapper.getQueryString()) : "", (System.currentTimeMillis() - t0), requestBody, responseWrapper.getContent());
                 httpResponse.getOutputStream().write(responseWrapper.getContentAsBytes());
 
             } catch (Exception e) {
-                LOGGER.error("{} {} - {}{} - {}ms\nRequest body:\n{}\nException message:\n{}\n==============================================", requestWrapper.getMethod(), responseWrapper.getStatus(), requestWrapper.getRequestURL().toString(), requestWrapper.getQueryString() != null ? ("?" + requestWrapper.getQueryString()) : "", (System.currentTimeMillis() - t0), requestBody, e.getMessage());
+                LOGGER.error("\n==============================================\n{} {} - {}{} - {}ms\nRequest body:\n{}\nException message:\n{}\n==============================================", requestWrapper.getMethod(), responseWrapper.getStatus(), requestWrapper.getRequestURL().toString(), requestWrapper.getQueryString() != null ? ("?" + requestWrapper.getQueryString()) : "", (System.currentTimeMillis() - t0), requestBody, e.getMessage());
                 httpResponse.getOutputStream().write(e.getMessage().getBytes());
             }
 
         }
-        LOGGER.info("doFilter ends!");
+        LOGGER.info("SimpleFilterToo doFilter ends!");
     }
 
     @Override
     public void destroy() {
-        Filter.super.destroy();
-        LOGGER.info("Filter destroyed!");
+        LOGGER.info("SimpleFilterToo destroyed!");
     }
 
 }

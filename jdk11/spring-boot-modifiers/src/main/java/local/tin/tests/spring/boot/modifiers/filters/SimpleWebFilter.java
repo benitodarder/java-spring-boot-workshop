@@ -22,21 +22,19 @@ public class SimpleWebFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        Filter.super.init(filterConfig);
-        LOGGER.info("upperCaser WebFilter initialized!");
+        LOGGER.info("WebFilter initialized!");
     }
 
     @Override
     public void doFilter(ServletRequest arg0, ServletResponse arg1, FilterChain arg2) throws IOException, ServletException {
-        LOGGER.info("upperCaser WebFilter before doFilter");
+        LOGGER.info("WebFilter doFilter starts!!");
         arg2.doFilter(arg0, arg1);
-        LOGGER.info("upperCaser WebFilter after doFilter");
+        LOGGER.info("WebFilter doFilter ends!!");
     }
 
     @Override
     public void destroy() {
-        Filter.super.destroy();
-        LOGGER.info("upperCaser WebFilter destroyed!");
+        LOGGER.info("WebFilter destroyed!");
     }
 
 

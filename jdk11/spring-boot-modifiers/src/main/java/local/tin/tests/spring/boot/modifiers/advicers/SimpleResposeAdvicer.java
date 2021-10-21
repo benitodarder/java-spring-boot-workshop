@@ -1,9 +1,5 @@
 package local.tin.tests.spring.boot.modifiers.advicers;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.logging.Level;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.MethodParameter;
@@ -27,6 +23,7 @@ public class SimpleResposeAdvicer implements ResponseBodyAdvice<Object> {
 
     @Override
     public boolean supports(MethodParameter methodParameter, Class<? extends HttpMessageConverter<?>> aClass) {
+        LOGGER.info("SimpleResposeAdvicer supports!!");
         return true;
     }
 
@@ -34,8 +31,14 @@ public class SimpleResposeAdvicer implements ResponseBodyAdvice<Object> {
     public Object beforeBodyWrite(Object o, MethodParameter methodParameter, MediaType mediaType,
             Class<? extends HttpMessageConverter<?>> aClass, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
         if (serverHttpRequest instanceof ServletServerHttpRequest && serverHttpResponse instanceof ServletServerHttpResponse) {
-            LOGGER.info("Body was read!!");
-            LOGGER.info("And it was:\n" + (String) o);
+            LOGGER.info("SimpleResposeAdvicer beforeBodyWrite!!");
+            if (o instanceof String) {
+                LOGGER.info("And it's going to be:\n{}", (String) o);
+            } else if (o != null) {
+                LOGGER.info("And it is an instance of:\n{}" , o.getClass().getCanonicalName());
+            } else {
+                 LOGGER.info("And it is going to be null...Pfff... Whatever... Meh");
+            }
         }
         return o;
     }

@@ -20,14 +20,15 @@ public class SimpleRequestAdvicer extends RequestBodyAdviceAdapter {
 
     @Override
     public boolean supports(MethodParameter methodParameter, Type type, Class<? extends HttpMessageConverter<?>> aClass) {
+        LOGGER.info("SimpleRequestAdvicer supports!!");
         return true;
     }
 
     @Override
     public Object afterBodyRead(Object body, HttpInputMessage inputMessage, MethodParameter parameter, Type targetType, Class<? extends HttpMessageConverter<?>> converterType) {
 
-        LOGGER.info("Body was read!!");
-        LOGGER.info("And it was:\n" + (String) body);
+        LOGGER.info("SimpleRequestAdvicer afterBodyRead!!");
+        LOGGER.info("And it was:\n{}", (String) body);
 
         return super.afterBodyRead(body, inputMessage, parameter, targetType, converterType);
     }

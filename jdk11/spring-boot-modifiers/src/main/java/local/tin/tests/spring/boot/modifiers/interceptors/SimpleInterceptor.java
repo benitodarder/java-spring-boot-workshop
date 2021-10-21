@@ -19,18 +19,18 @@ public class SimpleInterceptor implements HandlerInterceptor {
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object object, Exception arg3) throws Exception {
-        LOGGER.info("afterCompletion");
+        LOGGER.info("SimpleInterceptor afterCompletion");
     }
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object object, ModelAndView model) throws Exception {
-        LOGGER.info("postHandle");
+        LOGGER.info("SimpleInterceptor postHandle");
     }
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
-        LOGGER.info("preHandle");
+        LOGGER.info("SimpleInterceptor preHandle");
         return true;
     }
 }

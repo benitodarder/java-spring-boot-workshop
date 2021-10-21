@@ -22,20 +22,18 @@ public class SimpleFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        Filter.super.init(filterConfig);
         LOGGER.info("Filter initialized!");
     }
 
     @Override
     public void doFilter(ServletRequest arg0, ServletResponse arg1, FilterChain arg2) throws IOException, ServletException {
-        LOGGER.info("Filter before doFilter");
+        LOGGER.info("Filter doFilter starts!");
         arg2.doFilter(arg0, arg1);
-        LOGGER.info("Filter after doFilter");
+        LOGGER.info("Filter doFilter ends!");
     }
 
     @Override
     public void destroy() {
-        Filter.super.destroy();
         LOGGER.info("Filter destroyed!");
     }
 
