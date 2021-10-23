@@ -21,7 +21,14 @@ import org.slf4j.LoggerFactory;
 public class SimpleFilterToo implements Filter {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SimpleFilterToo.class);
+    private final long createdAt;
 
+    public SimpleFilterToo() {
+            this.createdAt = System.currentTimeMillis();
+    }
+    
+    
+    
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         LOGGER.info("SimpleFilterToo initialized!");
@@ -29,7 +36,7 @@ public class SimpleFilterToo implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
-        LOGGER.info("SimpleFilterToo doFilter starts!");
+        LOGGER.info("SimpleFilterToo doFilter starts! Created at:  {}", createdAt);
         if (!(request instanceof HttpServletRequest) || !(response instanceof HttpServletResponse)) {
             LOGGER.warn("LoggingFilter just supports HTTP requests");
         } else {

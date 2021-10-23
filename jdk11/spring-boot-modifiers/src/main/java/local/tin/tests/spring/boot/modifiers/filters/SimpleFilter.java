@@ -1,6 +1,7 @@
 package local.tin.tests.spring.boot.modifiers.filters;
 
 import java.io.IOException;
+import java.util.Date;
 import org.springframework.stereotype.Component;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -19,7 +20,14 @@ import org.slf4j.LoggerFactory;
 public class SimpleFilter implements Filter {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SimpleFilter.class);
+    private final long createdAt;
 
+    public SimpleFilter() {
+        this.createdAt = System.currentTimeMillis();
+    }
+    
+    
+    
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         LOGGER.info("Filter initialized!");
@@ -27,7 +35,7 @@ public class SimpleFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest arg0, ServletResponse arg1, FilterChain arg2) throws IOException, ServletException {
-        LOGGER.info("Filter doFilter starts!");
+        LOGGER.info("Filter doFilter starts! Created at:  {}", createdAt);
         arg2.doFilter(arg0, arg1);
         LOGGER.info("Filter doFilter ends!");
     }

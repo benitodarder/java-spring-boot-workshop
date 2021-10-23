@@ -19,6 +19,11 @@ import org.slf4j.LoggerFactory;
 public class SimpleWebFilterToo implements Filter {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SimpleWebFilterToo.class);
+    private final long createdAt;
+
+    public SimpleWebFilterToo() {
+        this.createdAt = System.currentTimeMillis();
+    }
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -27,7 +32,7 @@ public class SimpleWebFilterToo implements Filter {
 
     @Override
     public void doFilter(ServletRequest arg0, ServletResponse arg1, FilterChain arg2) throws IOException, ServletException {
-        LOGGER.info("SimpleWebFilterToo doFilter starts");
+        LOGGER.info("SimpleWebFilterToo doFilter starts! Created at:  {}", createdAt);
         arg2.doFilter(arg0, arg1);
         LOGGER.info("SimpleWebFilterToo doFilter ends");
     }
@@ -36,6 +41,5 @@ public class SimpleWebFilterToo implements Filter {
     public void destroy() {
         LOGGER.info("SimpleWebFilterToo destroyed!");
     }
-
 
 }

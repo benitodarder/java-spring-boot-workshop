@@ -20,10 +20,17 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 public class SimpleResposeAdvicer implements ResponseBodyAdvice<Object> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SimpleResposeAdvicer.class);
+    private final long createdAt;
+
+    public SimpleResposeAdvicer() {
+        this.createdAt = System.currentTimeMillis();
+    }
+    
+    
 
     @Override
     public boolean supports(MethodParameter methodParameter, Class<? extends HttpMessageConverter<?>> aClass) {
-        LOGGER.info("SimpleResposeAdvicer supports!!");
+        LOGGER.info("SimpleResposeAdvicer supports!!! Created at:  {}", createdAt);
         return true;
     }
 
@@ -31,7 +38,7 @@ public class SimpleResposeAdvicer implements ResponseBodyAdvice<Object> {
     public Object beforeBodyWrite(Object o, MethodParameter methodParameter, MediaType mediaType,
             Class<? extends HttpMessageConverter<?>> aClass, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
         if (serverHttpRequest instanceof ServletServerHttpRequest && serverHttpResponse instanceof ServletServerHttpResponse) {
-            LOGGER.info("SimpleResposeAdvicer beforeBodyWrite!!");
+            LOGGER.info("SimpleResposeAdvicer beforeBodyWrite!!! Created at:  {}", createdAt);
             if (o instanceof String) {
                 LOGGER.info("And it's going to be:\n{}", (String) o);
             } else if (o != null) {

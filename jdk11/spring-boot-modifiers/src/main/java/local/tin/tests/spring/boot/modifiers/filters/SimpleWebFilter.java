@@ -19,6 +19,13 @@ import org.slf4j.LoggerFactory;
 public class SimpleWebFilter implements Filter {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SimpleWebFilter.class);
+    private final long createdAt;
+
+    public SimpleWebFilter() {
+        this.createdAt = System.currentTimeMillis();
+    }
+    
+    
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -27,7 +34,7 @@ public class SimpleWebFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest arg0, ServletResponse arg1, FilterChain arg2) throws IOException, ServletException {
-        LOGGER.info("WebFilter doFilter starts!!");
+        LOGGER.info("WebFilter doFilter starts!! Created at:  {}", createdAt);
         arg2.doFilter(arg0, arg1);
         LOGGER.info("WebFilter doFilter ends!!");
     }
@@ -36,6 +43,5 @@ public class SimpleWebFilter implements Filter {
     public void destroy() {
         LOGGER.info("WebFilter destroyed!");
     }
-
 
 }

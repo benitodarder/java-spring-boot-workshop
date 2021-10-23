@@ -17,17 +17,24 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestBodyAdviceAd
 public class SimpleRequestAdvicer extends RequestBodyAdviceAdapter {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SimpleRequestAdvicer.class);
+    private final long createdAt;
 
+    public SimpleRequestAdvicer() {
+        this.createdAt = System.currentTimeMillis();
+    }
+    
+    
+    
     @Override
     public boolean supports(MethodParameter methodParameter, Type type, Class<? extends HttpMessageConverter<?>> aClass) {
-        LOGGER.info("SimpleRequestAdvicer supports!!");
+        LOGGER.info("SimpleRequestAdvicer supports!!! Created at:  {}", createdAt);
         return true;
     }
 
     @Override
     public Object afterBodyRead(Object body, HttpInputMessage inputMessage, MethodParameter parameter, Type targetType, Class<? extends HttpMessageConverter<?>> converterType) {
 
-        LOGGER.info("SimpleRequestAdvicer afterBodyRead!!");
+        LOGGER.info("SimpleRequestAdvicer afterBodyRead!!! Created at:  {}", createdAt);
         LOGGER.info("And it was:\n{}", (String) body);
 
         return super.afterBodyRead(body, inputMessage, parameter, targetType, converterType);
