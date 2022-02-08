@@ -5,7 +5,7 @@
     <artifactId>spring-boot-workshop-jdk11-root</artifactId>
     <version>1.0</version>
     <packaging>pom</packaging>
-   <properties>
+    <properties>
         <!-- Base -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
@@ -21,6 +21,8 @@
         <fasterxml.jackson.version>2.11.4</fasterxml.jackson.version>
         <h2.version>1.4.200</h2.version>
         <hsqldb.version>2.4.0</hsqldb.version>
+        <javax.activation.version>1.2.0</javax.activation.version>
+        <jaxb.version>2.3.0</jaxb.version>
         <spring.boot.version>2.3.4.RELEASE</spring.boot.version>
     </properties>
     <dependencyManagement>
@@ -86,6 +88,26 @@
                 <artifactId>hsqldb</artifactId>
                 <version>${hsqldb.version}</version>
             </dependency>
+            <dependency>
+                <groupId>javax.xml.bind</groupId>
+                <artifactId>jaxb-api</artifactId>
+                <version>${jaxb.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sun.xml.bind</groupId>
+                <artifactId>jaxb-core</artifactId>
+                <version>${jaxb.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sun.xml.bind</groupId>
+                <artifactId>jaxb-impl</artifactId>
+                <version>${jaxb.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.activation</groupId>
+                <artifactId>javax.activation-api</artifactId>
+                <version>${javax.activation.version}</version>
+            </dependency>            
         </dependencies>
     </dependencyManagement>
     <build>
@@ -114,5 +136,6 @@
     <modules>
         <module>spring-boot-jdk11-crud-service</module>
         <module>spring-boot-modifiers</module>
+        <module>spring-boot-jaxb-workshop</module>
     </modules>
 </project>
