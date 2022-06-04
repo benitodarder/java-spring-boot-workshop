@@ -5,11 +5,11 @@
     <artifactId>spring-boot-hello-world</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-	<parent>
-	<groupId>local.tin.tests</groupId>
-	<artifactId>spring-boot-workshop-jdk11-root</artifactId>
-	<version>1.0</version>
-	</parent>
+    <parent>
+        <groupId>local.tin.tests</groupId>
+        <artifactId>spring-boot-workshop-jdk11-root</artifactId>
+        <version>1.0</version>
+    </parent>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -19,6 +19,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
     </dependencies>
     <build>
