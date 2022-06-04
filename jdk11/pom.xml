@@ -137,5 +137,6 @@
         <module>spring-boot-jdk11-crud-service</module>
         <module>spring-boot-modifiers</module>
         <module>spring-boot-jaxb-workshop</module>
+        <module>spring-boot-hello-world</module>        
     </modules>
 </project>
