@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author benitodarder
  */
 @RestController
-@RequestMapping("/conponent")
+@RequestMapping("/component")
 public class ComponentCtrl extends AbstractNamedServiceBusinessController<Component> {
 
     @Autowired
