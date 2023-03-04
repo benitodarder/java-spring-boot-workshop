@@ -9,7 +9,7 @@ import local.tin.tests.crud.model.domain.abstracts.AbstractNamed;
  *
  * @author benito.darder
  */
-public class Product extends AbstractNamed {
+public class Product extends AbstractNamed<Integer> {
 
 
     private Integer id;
@@ -22,7 +22,7 @@ public class Product extends AbstractNamed {
     }
 
     @Override
-    public void setId(Object id) {
+    public void setId(Integer id) {
         this.id = (Integer) id;
     }
 

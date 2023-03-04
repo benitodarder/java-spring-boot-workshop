@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * @author benitodarder
  */
 @Component
-public class ProductPersistenceToDomain extends AbstractNamedPersistenceToDomain<local.tin.tests.crud.model.persistence.Product, local.tin.tests.crud.model.domain.Product> {
+public class ProductPersistenceToDomain extends AbstractNamedPersistenceToDomain<local.tin.tests.crud.model.persistence.Product, local.tin.tests.crud.model.domain.Product, Integer> {
     
     @Autowired
     private AssemblyPersistenceToDomain powerConverter;

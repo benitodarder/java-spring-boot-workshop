@@ -1,16 +1,16 @@
 package local.tin.tests.crud.service.springboot;
 
-public class Domain extends local.tin.tests.crud.model.domain.abstracts.AbstractNamed  {
+public class Domain extends local.tin.tests.crud.model.domain.abstracts.AbstractNamed<Integer>  {
 
-    private int id;
+    private Integer id;
     
     @Override
-    public Object getId() {
+    public Integer getId() {
         return id;
     }
 
     @Override
-    public void setId(Object id) {
+    public void setId(Integer id) {
         this.id = (Integer) id;
     }
  

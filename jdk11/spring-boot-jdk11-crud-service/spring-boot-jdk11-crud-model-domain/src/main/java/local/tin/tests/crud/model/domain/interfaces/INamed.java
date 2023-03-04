@@ -1,10 +1,12 @@
 package local.tin.tests.crud.model.domain.interfaces;
 
+import java.io.Serializable;
+
 /**
  *
  * @author benito.darder
  */
-public interface INamed extends IEnableable {
+public interface INamed<K extends Serializable> extends IEnableable<K> {
     
     /**
      * Returns the element name

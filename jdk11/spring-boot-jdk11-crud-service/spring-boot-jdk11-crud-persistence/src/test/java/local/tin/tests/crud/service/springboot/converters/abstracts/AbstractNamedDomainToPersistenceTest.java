@@ -35,7 +35,7 @@ public class AbstractNamedDomainToPersistenceTest {
 
 }
 
-class NamedBusinessToPersistenceConverterWrapper extends AbstractNamedDomainToPersistence<Domain, Persistence> {
+class NamedBusinessToPersistenceConverterWrapper extends AbstractNamedDomainToPersistence<Domain, Persistence, Integer> {
 
     @Override
     protected Persistence getConvertedInstance() {

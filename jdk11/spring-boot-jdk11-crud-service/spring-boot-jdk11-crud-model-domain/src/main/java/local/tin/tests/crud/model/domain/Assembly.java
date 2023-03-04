@@ -10,7 +10,7 @@ import local.tin.tests.crud.model.domain.deserializers.AssemblyIdDeserializer;
  *
  * @author benito.darder
  */
-public class Assembly extends AbstractEnableable {
+public class Assembly extends AbstractEnableable<AssemblyId> {
 
     @JsonDeserialize(using = AssemblyIdDeserializer.class)
     private AssemblyId id;
@@ -24,7 +24,7 @@ public class Assembly extends AbstractEnableable {
     }
 
     @Override
-    public void setId(Object id) {
+    public void setId(AssemblyId id) {
         this.id = (AssemblyId) id;
     }
 

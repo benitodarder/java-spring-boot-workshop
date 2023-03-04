@@ -1,5 +1,6 @@
 package local.tin.tests.crud.model.persistence.abstracts;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import local.tin.tests.crud.model.persistence.interfaces.IEnableable;
@@ -10,7 +11,7 @@ import local.tin.tests.crud.model.persistence.interfaces.IEnableable;
  * @author benitodarder
  */
 @MappedSuperclass
-public abstract class AbstractEnableable extends AbstractIdentifiable implements IEnableable {
+public abstract class AbstractEnableable<K extends Serializable> extends AbstractIdentifiable<K> implements IEnableable<K> {
    
     @Column(name = "enabled")
     private boolean enabled;

@@ -1,5 +1,6 @@
 package local.tin.tests.crud.model.persistence.abstracts;
 
+import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.MappedSuperclass;
 import local.tin.tests.crud.model.persistence.interfaces.IIdentifiable;
@@ -10,7 +11,7 @@ import local.tin.tests.crud.model.persistence.interfaces.IIdentifiable;
  * @author benitodarder
  */
 @MappedSuperclass
-public abstract class AbstractIdentifiable extends AbstractObject implements IIdentifiable {
+public abstract class AbstractIdentifiable<K extends Serializable> extends AbstractObject implements IIdentifiable<K> {
     
 
 

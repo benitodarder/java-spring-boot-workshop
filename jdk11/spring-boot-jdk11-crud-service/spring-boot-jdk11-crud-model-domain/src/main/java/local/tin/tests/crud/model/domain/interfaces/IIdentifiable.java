@@ -1,23 +1,25 @@
 package local.tin.tests.crud.model.domain.interfaces;
 
+import java.io.Serializable;
+
 /**
  *
  * @author benito.darder
  */
-public interface IIdentifiable extends IObject {
+public interface IIdentifiable<K extends Serializable> extends IObject {
     
     /**
      * Returns the element identifier, being atomic or composite
      * 
      * @return Object
      */
-    public Object getId();
+    public K getId();
    
     /**
      * Sets the element identifier, being atomic or composite
      * 
      * @param id
      */
-    public void setId(Object id);    
+    public void setId(K id);    
     
 }

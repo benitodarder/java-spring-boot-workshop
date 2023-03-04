@@ -11,7 +11,7 @@ import local.tin.tests.crud.model.domain.abstracts.AbstractNamed;
  * @author benito.darder
  */
 
-public class Unit extends AbstractNamed {
+public class Unit extends AbstractNamed<Integer> {
 
 
     private Integer id;
@@ -24,7 +24,7 @@ public class Unit extends AbstractNamed {
     }
 
     @Override
-    public void setId(Object id) {
+    public void setId(Integer id) {
         this.id = (Integer) id;
     }
 

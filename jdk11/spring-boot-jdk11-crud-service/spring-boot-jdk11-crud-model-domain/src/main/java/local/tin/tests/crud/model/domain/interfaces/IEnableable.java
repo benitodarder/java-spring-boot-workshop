@@ -1,10 +1,12 @@
 package local.tin.tests.crud.model.domain.interfaces;
 
+import java.io.Serializable;
+
 /**
  *
  * @author benitodarder
  */
-public interface IEnableable extends IIdentifiable {
+public interface IEnableable<K extends Serializable> extends IIdentifiable<K> {
     
     /**
      * Returns enabled/disabled status

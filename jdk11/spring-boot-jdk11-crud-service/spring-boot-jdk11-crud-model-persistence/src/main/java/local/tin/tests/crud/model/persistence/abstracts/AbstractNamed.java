@@ -1,5 +1,6 @@
 package local.tin.tests.crud.model.persistence.abstracts;
 
+import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
@@ -12,7 +13,7 @@ import local.tin.tests.crud.model.persistence.interfaces.INamed;
  * @author benitodarder
  */
 @MappedSuperclass
-public abstract class AbstractNamed extends AbstractEnableable implements INamed {
+public abstract class AbstractNamed<K extends Serializable> extends AbstractEnableable<K> implements INamed<K> {
 
     @Column(name = "name")
     private String name;

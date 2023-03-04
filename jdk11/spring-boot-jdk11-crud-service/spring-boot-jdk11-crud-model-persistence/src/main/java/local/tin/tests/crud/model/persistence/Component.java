@@ -21,7 +21,7 @@ import local.tin.tests.crud.model.persistence.abstracts.AbstractNamed;
  */
 @Entity
 @Table(name = "COMPONENT")
-public class Component extends AbstractNamed {
+public class Component extends AbstractNamed<Integer> {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,12 +34,12 @@ public class Component extends AbstractNamed {
     private Set<Assembly> assemblies;   
     
     @Override
-    public Object getId() {
+    public Integer getId() {
         return id;
     }
 
     @Override
-    public void setId(Object id) {
+    public void setId(Integer id) {
         this.id = (Integer) id;
     }
 

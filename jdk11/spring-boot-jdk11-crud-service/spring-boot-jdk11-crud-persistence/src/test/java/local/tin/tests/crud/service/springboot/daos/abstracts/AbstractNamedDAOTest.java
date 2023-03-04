@@ -24,8 +24,8 @@ import static org.mockito.Mockito.when;
 public class AbstractNamedDAOTest {
     private static final int SAMPLE_ID = 666;
     private static final String SAMPLE_NAME = "Name";
-    protected static AbstractIdentifiableDomainToPersistence<Domain, Persistence> mockedAbstractIdentifiableBusinessToPersistence;
-    protected static AbstractIdentifiablePersistenceToDomain<Persistence, Domain> mockedAbstractIdentifiablePersistenceToBusiness;
+    protected static AbstractIdentifiableDomainToPersistence<Domain, Persistence, Integer> mockedAbstractIdentifiableBusinessToPersistence;
+    protected static AbstractIdentifiablePersistenceToDomain<Persistence, Domain, Integer> mockedAbstractIdentifiablePersistenceToBusiness;
     protected static INamedRepository<Persistence> mockedRespository;
     private AbstractNamedDAO dao;
     private Persistence mockedPersistence;
@@ -67,7 +67,7 @@ public class AbstractNamedDAOTest {
     }
 }
 
-class AbstractNamedDAOWrapper extends AbstractNamedDAO<Domain, Persistence> {
+class AbstractNamedDAOWrapper extends AbstractNamedDAO<Domain, Persistence, Integer, Integer> {
 
     @Override
     protected IRepository<Persistence> getRepository() {
@@ -75,12 +75,12 @@ class AbstractNamedDAOWrapper extends AbstractNamedDAO<Domain, Persistence> {
     }
 
     @Override
-    protected AbstractIdentifiableDomainToPersistence<Domain, Persistence> getBusinessToPersistence() {
+    protected AbstractIdentifiableDomainToPersistence<Domain, Persistence, Integer> getBusinessToPersistence() {
         return AbstractNamedDAOTest.mockedAbstractIdentifiableBusinessToPersistence;
     }
 
     @Override
-    protected AbstractIdentifiablePersistenceToDomain<Persistence, Domain> getPersistenceToBusiness() {
+    protected AbstractIdentifiablePersistenceToDomain<Persistence, Domain, Integer> getPersistenceToBusiness() {
         return AbstractNamedDAOTest.mockedAbstractIdentifiablePersistenceToBusiness;
     }
 

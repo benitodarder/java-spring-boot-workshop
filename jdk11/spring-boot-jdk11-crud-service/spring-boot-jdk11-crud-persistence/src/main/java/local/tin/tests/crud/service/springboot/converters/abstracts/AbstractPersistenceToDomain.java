@@ -1,5 +1,6 @@
 package local.tin.tests.crud.service.springboot.converters.abstracts;
 
+import java.io.Serializable;
 import local.tin.tests.crud.service.springboot.converters.interfaces.ConverterWithDepth;
 import org.springframework.core.convert.converter.Converter;
 
@@ -9,7 +10,7 @@ import org.springframework.core.convert.converter.Converter;
  * @param <P>
  * @param <B>
  */
-public abstract class AbstractPersistenceToDomain<P extends local.tin.tests.crud.model.persistence.interfaces.IIdentifiable, B extends local.tin.tests.crud.model.domain.interfaces.IIdentifiable>
+public abstract class AbstractPersistenceToDomain<P extends local.tin.tests.crud.model.persistence.interfaces.IIdentifiable, B extends local.tin.tests.crud.model.domain.interfaces.IIdentifiable, K extends Serializable>
         implements Converter<P, B>, ConverterWithDepth<P, B> {
     
     protected abstract B getConvertedInstance();
@@ -18,8 +19,8 @@ public abstract class AbstractPersistenceToDomain<P extends local.tin.tests.crud
     
     protected abstract B setDeeperAttributes(B b, P p, int depth);    
     
-    protected Object getConvertedId(P arg0) {
-        return arg0.getId();
+    protected K getConvertedId(P arg0) {
+        return (K) arg0.getId();
     }
     
     @Override

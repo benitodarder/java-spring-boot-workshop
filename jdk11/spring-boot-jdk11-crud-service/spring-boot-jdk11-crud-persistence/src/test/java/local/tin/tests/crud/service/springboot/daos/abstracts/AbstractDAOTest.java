@@ -30,8 +30,8 @@ import static org.mockito.Mockito.when;
 public class AbstractDAOTest {
 
     private static final int SAMPLE_ID = 666;
-    protected static AbstractIdentifiableDomainToPersistence<Domain, Persistence> mockedAbstractIdentifiableBusinessToPersistence;
-    protected static AbstractIdentifiablePersistenceToDomain<Persistence, Domain> mockedAbstractIdentifiablePersistenceToBusiness;
+    protected static AbstractIdentifiableDomainToPersistence<Domain, Persistence, Integer> mockedAbstractIdentifiableBusinessToPersistence;
+    protected static AbstractIdentifiablePersistenceToDomain<Persistence, Domain, Integer> mockedAbstractIdentifiablePersistenceToBusiness;
     protected static IRepository<Persistence> mockedRespository;
     private Domain mockedBusiness;
     private Persistence mockedPersistence;
@@ -204,15 +204,15 @@ public class AbstractDAOTest {
     }
 }
 
-class AbstractDAOWrapper extends AbstractDAO<Domain, Persistence, Integer> {
+class AbstractDAOWrapper extends AbstractDAO<Domain, Persistence, Integer, Integer> {
 
     @Override
-    protected AbstractIdentifiableDomainToPersistence<Domain, Persistence> getBusinessToPersistence() {
+    protected AbstractIdentifiableDomainToPersistence<Domain, Persistence, Integer> getBusinessToPersistence() {
         return AbstractDAOTest.mockedAbstractIdentifiableBusinessToPersistence;
     }
 
     @Override
-    protected AbstractIdentifiablePersistenceToDomain<Persistence, Domain> getPersistenceToBusiness() {
+    protected AbstractIdentifiablePersistenceToDomain<Persistence, Domain, Integer> getPersistenceToBusiness() {
         return AbstractDAOTest.mockedAbstractIdentifiablePersistenceToBusiness;
     }
 

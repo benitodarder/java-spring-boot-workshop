@@ -1,5 +1,6 @@
 package local.tin.tests.crud.model.domain.abstracts;
 
+import java.io.Serializable;
 import java.util.Objects;
 import local.tin.tests.crud.model.domain.interfaces.IIdentifiable;
 
@@ -8,7 +9,7 @@ import local.tin.tests.crud.model.domain.interfaces.IIdentifiable;
  *
  * @author benitodarder
  */
-public abstract class AbstractIdentifiable extends AbstractObject implements IIdentifiable {
+public abstract class AbstractIdentifiable<K extends Serializable> extends AbstractObject implements IIdentifiable<K> {
     
  
     @Override

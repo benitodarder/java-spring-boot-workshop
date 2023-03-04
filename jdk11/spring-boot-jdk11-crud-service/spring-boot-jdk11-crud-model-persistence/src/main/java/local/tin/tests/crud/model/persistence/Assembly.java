@@ -14,7 +14,7 @@ import local.tin.tests.crud.model.persistence.embeddables.AssemblyId;
 
 @Entity
 @Table(name = "ASSEMBLY")
-public class Assembly extends AbstractEnableable {
+public class Assembly extends AbstractEnableable<AssemblyId> {
 
     @EmbeddedId
     private AssemblyId id;
@@ -31,12 +31,12 @@ public class Assembly extends AbstractEnableable {
     
 
     @Override
-    public Object getId() {
+    public AssemblyId getId() {
         return id;
     }
 
     @Override
-    public void setId(Object id) {
+    public void setId(AssemblyId id) {
         this.id = (AssemblyId) id;
     }
 

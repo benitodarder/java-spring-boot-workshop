@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  * @author benitodarder
  */
 @Component
-public class ComponentDomainToPersistence extends AbstractNamedDomainToPersistence<local.tin.tests.crud.model.domain.Component, local.tin.tests.crud.model.persistence.Component> {
+public class ComponentDomainToPersistence extends AbstractNamedDomainToPersistence<local.tin.tests.crud.model.domain.Component, local.tin.tests.crud.model.persistence.Component, Integer> {
 
     @Autowired
     private UnitDomainToPersistence unitConverter;

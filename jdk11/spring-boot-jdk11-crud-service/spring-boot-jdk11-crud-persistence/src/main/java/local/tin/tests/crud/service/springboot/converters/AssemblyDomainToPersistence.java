@@ -2,6 +2,7 @@ package local.tin.tests.crud.service.springboot.converters;
 
 import local.tin.tests.crud.service.springboot.converters.abstracts.AbstractEnableableDomainToPersistence;
 import local.tin.tests.crud.model.persistence.Assembly;
+import local.tin.tests.crud.model.persistence.embeddables.AssemblyId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -10,7 +11,7 @@ import org.springframework.stereotype.Component;
  * @author benitodarder
  */
 @Component
-public class AssemblyDomainToPersistence extends AbstractEnableableDomainToPersistence<local.tin.tests.crud.model.domain.Assembly, local.tin.tests.crud.model.persistence.Assembly> {
+public class AssemblyDomainToPersistence extends AbstractEnableableDomainToPersistence<local.tin.tests.crud.model.domain.Assembly, local.tin.tests.crud.model.persistence.Assembly, AssemblyId> {
 
     @Autowired
     private ComponentDomainToPersistence powerConverter;

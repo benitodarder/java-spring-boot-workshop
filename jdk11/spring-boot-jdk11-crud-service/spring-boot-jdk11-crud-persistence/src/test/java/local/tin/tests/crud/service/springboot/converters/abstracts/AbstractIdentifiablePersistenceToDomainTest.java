@@ -14,7 +14,7 @@ import org.junit.Test;
  */
 public class AbstractIdentifiablePersistenceToDomainTest {
     
-    private static final int SAMPLE_ID = 666;
+    private static final Integer SAMPLE_ID = 666;
     private Domain business;
     private Persistence persistence;
     private AbstractIdentifiablePersistenceToDomain converter;
@@ -37,7 +37,7 @@ public class AbstractIdentifiablePersistenceToDomainTest {
 
 }
 
-class IdentifiablePersistenceToBusinessConverterWrapper extends AbstractIdentifiablePersistenceToDomain<Persistence, Domain> {
+class IdentifiablePersistenceToBusinessConverterWrapper extends AbstractIdentifiablePersistenceToDomain<Persistence, Domain, Integer> {
 
     @Override
     protected Domain getConvertedInstance() {

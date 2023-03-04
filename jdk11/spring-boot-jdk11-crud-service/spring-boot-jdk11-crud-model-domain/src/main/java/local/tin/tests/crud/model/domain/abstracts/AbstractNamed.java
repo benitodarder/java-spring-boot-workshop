@@ -1,5 +1,6 @@
 package local.tin.tests.crud.model.domain.abstracts;
 
+import java.io.Serializable;
 import java.util.Objects;
 import local.tin.tests.crud.model.domain.interfaces.INamed;
 
@@ -9,7 +10,7 @@ import local.tin.tests.crud.model.domain.interfaces.INamed;
  *
  * @author benitodarder
  */
-public abstract class AbstractNamed extends AbstractEnableable implements INamed {
+public abstract class AbstractNamed<K extends Serializable> extends AbstractEnableable<K> implements INamed<K> {
 
     private String name;
 

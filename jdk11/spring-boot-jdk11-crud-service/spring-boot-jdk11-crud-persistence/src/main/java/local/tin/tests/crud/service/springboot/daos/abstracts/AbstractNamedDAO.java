@@ -1,5 +1,6 @@
 package local.tin.tests.crud.service.springboot.daos.abstracts;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import local.tin.tests.crud.service.springboot.daos.interfaces.IAbstractNamedDAO;
@@ -11,7 +12,7 @@ import local.tin.tests.crud.service.springboot.repositories.interfaces.INamedRep
  * @param <BN>
  * @param <PN>
  */
-public abstract class AbstractNamedDAO<BN extends local.tin.tests.crud.model.domain.interfaces.INamed, PN extends local.tin.tests.crud.model.persistence.interfaces.INamed> extends AbstractDAO<BN, PN, Integer> implements IAbstractNamedDAO<BN, PN>{
+public abstract class AbstractNamedDAO<BN extends local.tin.tests.crud.model.domain.interfaces.INamed, PN extends local.tin.tests.crud.model.persistence.interfaces.INamed, KB extends Serializable, KP extends Serializable> extends AbstractDAO<BN, PN, KB, KP> implements IAbstractNamedDAO<BN, PN>{
 
     @Override
     public List<BN> findByName(String name) {

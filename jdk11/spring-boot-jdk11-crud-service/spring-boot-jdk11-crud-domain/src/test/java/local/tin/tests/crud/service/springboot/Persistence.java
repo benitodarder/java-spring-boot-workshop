@@ -1,16 +1,16 @@
 package local.tin.tests.crud.service.springboot;
 
-public class Persistence extends local.tin.tests.crud.model.persistence.abstracts.AbstractNamed  {
+public class Persistence extends local.tin.tests.crud.model.persistence.abstracts.AbstractNamed<Integer>  {
     
-    private int id;
+    private Integer id;
     
     @Override
-    public Object getId() {
+    public Integer getId() {
         return id;
     }
 
     @Override
-    public void setId(Object id) {
+    public void setId(Integer id) {
         this.id = (Integer) id;
     }
  

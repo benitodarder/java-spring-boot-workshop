@@ -1,5 +1,6 @@
 package local.tin.tests.crud.service.springboot.daos.abstracts;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import local.tin.tests.crud.model.domain.exceptions.SuperException;
@@ -14,15 +15,15 @@ import org.springframework.transaction.annotation.Transactional;
  * @param <BI>
  * @param <PI>
  */
-public abstract class AbstractDAO<BI extends local.tin.tests.crud.model.domain.interfaces.IIdentifiable, PI extends local.tin.tests.crud.model.persistence.interfaces.IIdentifiable, K extends Object>  implements IAbstractDAO<BI, PI> {
+public abstract class AbstractDAO<BI extends local.tin.tests.crud.model.domain.interfaces.IIdentifiable, PI extends local.tin.tests.crud.model.persistence.interfaces.IIdentifiable, KB extends Serializable, KP extends Serializable>  implements IAbstractDAO<BI, PI> {
   
     public static final int DEFAULT_DEPTH = 1;
     
-    protected abstract JpaRepository<PI, K> getRepository();
+    protected abstract JpaRepository<PI, KP> getRepository();
     
-    protected abstract AbstractIdentifiableDomainToPersistence<BI, PI> getBusinessToPersistence();
+    protected abstract AbstractIdentifiableDomainToPersistence<BI, PI, KP> getBusinessToPersistence();
 
-    protected abstract AbstractIdentifiablePersistenceToDomain<PI, BI> getPersistenceToBusiness();
+    protected abstract AbstractIdentifiablePersistenceToDomain<PI, BI, KB> getPersistenceToBusiness();
 
     protected BI convert(PI pi) {
         return getPersistenceToBusiness().convert(pi);
@@ -43,7 +44,7 @@ public abstract class AbstractDAO<BI extends local.tin.tests.crud.model.domain.i
     @Transactional    
     @Override
     public BI retrieve(BI item) throws SuperException {
-        PI pi = getRepository().getOne((K) convert(item).getId());
+        PI pi = getRepository().getOne((KP) convert(item).getId());
         if (pi == null) {
             return null;
         }
@@ -67,7 +68,7 @@ public abstract class AbstractDAO<BI extends local.tin.tests.crud.model.domain.i
         if (retrieve(item) == null) {
             throw new SuperException("Element not found for id: " + item.getId());
         }
-        getRepository().deleteById((K) convert(item).getId());
+        getRepository().deleteById((KP) convert(item).getId());
     }
 
     @Transactional    

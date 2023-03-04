@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
  * @author benitodarder
  */
 @Component
-public class ComponentDAO extends AbstractNamedDAO<local.tin.tests.crud.model.domain.Component, local.tin.tests.crud.model.persistence.Component>{
+public class ComponentDAO extends AbstractNamedDAO<local.tin.tests.crud.model.domain.Component, local.tin.tests.crud.model.persistence.Component, Integer, Integer>{
 
     @Autowired
     private ComponentPersistenceToDomain superHeroPersistenceToBusiness;
@@ -26,12 +26,12 @@ public class ComponentDAO extends AbstractNamedDAO<local.tin.tests.crud.model.do
     private ComponentRepo superHeroRepo;    
     
     @Override
-    protected AbstractIdentifiableDomainToPersistence<local.tin.tests.crud.model.domain.Component, local.tin.tests.crud.model.persistence.Component> getBusinessToPersistence() {
+    protected AbstractIdentifiableDomainToPersistence<local.tin.tests.crud.model.domain.Component, local.tin.tests.crud.model.persistence.Component, Integer> getBusinessToPersistence() {
         return superHeroBusinessToPersistence;
     }
 
     @Override
-    protected AbstractIdentifiablePersistenceToDomain<local.tin.tests.crud.model.persistence.Component, local.tin.tests.crud.model.domain.Component> getPersistenceToBusiness() {
+    protected AbstractIdentifiablePersistenceToDomain<local.tin.tests.crud.model.persistence.Component, local.tin.tests.crud.model.domain.Component, Integer> getPersistenceToBusiness() {
         return superHeroPersistenceToBusiness;
     }
 

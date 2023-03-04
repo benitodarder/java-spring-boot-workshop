@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  * @author benitodarder
  */
 @Component
-public class AssemblyPersistenceToDomain extends AbstractEnableablePersistenceToDomain<local.tin.tests.crud.model.persistence.Assembly, local.tin.tests.crud.model.domain.Assembly> {
+public class AssemblyPersistenceToDomain extends AbstractEnableablePersistenceToDomain<local.tin.tests.crud.model.persistence.Assembly, local.tin.tests.crud.model.domain.Assembly, local.tin.tests.crud.model.domain.composites.AssemblyId> {
 
     @Autowired
     private ComponentPersistenceToDomain powerConverter;
