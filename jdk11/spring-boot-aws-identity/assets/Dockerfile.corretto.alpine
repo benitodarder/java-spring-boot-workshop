@@ -1,5 +1,0 @@
-FROM amazoncorretto:21-alpine
-
-COPY target/spring-boot-aws-identity-1.0.jar .
-
-ENTRYPOINT ["java", "-jar", "spring-boot-aws-identity-1.0.jar"]
